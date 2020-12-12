@@ -53,21 +53,26 @@ def play(word):
                 #print("Você já tentou a palavra", guess)
             elif guess != word:
                 st.write(guess, 'não é a palavra.')
-                print(guess, "não é a palavra.")
+                #print(guess, "não é a palavra.")
                 tries -= 1
                 guessed_words.append(guess)
             else:
                 guessed = True
                 word_completion = word
         else:
-            print("Inválido.")
-        print(display_hangman(tries))
-        print(word_completion)
+            st.write('Inválido')
+            #print("Inválido.")
+        st.write(display_hangman(tries))
+        #print(display_hangman(tries))
+        st.write(word_completion)
+        #print(word_completion)
         print("\n")
     if guessed:
-        print("Parabéns, você adivinhou a palavra! Você venceu!")
+        st.write('Parabéns, você adivinhou a palavra! Você venceu!')
+        #print("Parabéns, você adivinhou a palavra! Você venceu!")
     else:
-        print("Você perdeu!. A palavra era " + word + ".")
+        st.write('Você perdeu!. A palavra era " + word + "."')
+        #print("Você perdeu!. A palavra era " + word + ".")
         
         
 
@@ -150,7 +155,7 @@ def display_hangman(tries):
 def main():
     word = get_word()
     play(word)
-    while input("Jogar de novo? (S/N) ").upper() == "S":
+    while st.text_input("Jogar de novo? (S/N) ").upper() == "S":
         word = get_word()
         play(word)
 
